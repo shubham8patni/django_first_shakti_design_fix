@@ -61,6 +61,7 @@ urlpatterns = [
         name="password_reset_complete",
     ),
     path("", include("blogger.urls")),
+    path("weather", include("weather.urls")),
 ]
 
 if settings.DEBUG:
