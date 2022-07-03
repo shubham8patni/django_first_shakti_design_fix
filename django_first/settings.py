@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "storages"
+    "storages",
+    "tinymce",
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,7 @@ ROOT_URLCONF = "django_first.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, 'templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -140,6 +141,32 @@ AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
+# AWS_QUERYSTRING_AUTH = False
+AWS_QUERYSTRING_EXPIRE = 63115200
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
+TINYMCE_DEFAULT_CONFIG = {
+    "selector": "textarea",
+    "theme": "silver",
+    "height": 500,
+    "menubar": True,
+    "plugins": '''textcolor save link image media preview codesample contextmenu
+            table code lists fullscreen  insertdatetime  nonbreaking
+            contextmenu directionality searchreplace wordcount visualblocks
+            visualchars code fullscreen autolink lists  charmap print  hr
+            anchor pagebreak''',
+    "toolbar": '''
+            fullscreen preview bold italic underline | fontselect,
+            fontsizeselect  | forecolor backcolor | alignleft alignright |
+            aligncenter alignjustify | indent outdent | bullist numlist table |
+            | link image media | codesample |
+            ''',
+    'contextmenu': 'formats | link image',
+    'statusbar': False,
+    "a11y_advanced_options" : True,
+    "image_title" : True,
+    "images_upload_url": "/upload_image/",
+}  
+
+TINYMCE_COMPRESSOR = False
 django_heroku.settings(locals())

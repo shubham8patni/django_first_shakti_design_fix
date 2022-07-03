@@ -15,3 +15,7 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse("post-detail", kwargs={"pk": self.pk})
+
+class Upload(models.Model):
+    uploaded_at = models.DateTimeField(default=timezone.now)
+    file = models.ImageField(upload_to="tinymce")
