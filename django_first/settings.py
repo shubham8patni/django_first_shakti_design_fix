@@ -165,6 +165,8 @@ TINYMCE_DEFAULT_CONFIG = {
     'statusbar': False,
     "a11y_advanced_options" : True,
     "image_title" : True,
+    "image_dimensions" : False,
+    "autoresize_bottom_margin" : 50,
     "images_upload_url": "/upload_image/",
 }  
 

@@ -31,8 +31,8 @@ body {
   .content-section {
     background: #ffffff;
     padding: 10px 20px;
-    border: 1px solid #dddddd;
-    border-radius: 3px;
+    border: 3px solid #dddddd;
+    border-radius: 5px;
     margin-bottom: 20px;
   }
   
@@ -53,6 +53,7 @@ body {
     height: 65px;
     width: 65px;
     margin-right: 16px;
+    border-radius:30%!important
   }
   
   .article-metadata {
@@ -81,4 +82,18 @@ body {
   
   .account-heading {
     font-size: 2.5rem;
+  }
+
+  .local-body {
+    box-sizing:content-box;
+    overflow-x: scroll;
+  }
+
+  .local-body > p img {
+    width: 100%;
+    height: auto;
+  }
+
+  pre code {
+    color: red;
   }
